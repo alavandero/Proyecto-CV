@@ -1,0 +1,5 @@
+@use 'variables' as *;
+
+@mixin transition($property) {
+  transition: $property $transition-time ease-in-out;
+}

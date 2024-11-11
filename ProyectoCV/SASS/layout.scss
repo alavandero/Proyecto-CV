@@ -1,0 +1,149 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Navigation styles
+nav {
+  width: 100%;
+  background-color: $nav-bg;
+  overflow: hidden;
+  position: relative;
+
+  .menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+  }
+
+  #menu-toggle {
+    display: none;
+
+    &:checked + .menu-icon + ul {
+      display: flex;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    li {
+      margin: 0;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        padding: 14px 20px;
+        text-align: center;
+        @include transition(background-color);
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $nav-hover;
+          outline: none; // Remueve el borde azul
+          text-decoration: none; // Remueve el subrayado
+        }
+      }
+    }
+  }
+
+  // Media Queries for mobile devices
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block; // Ensure the menu icon is displayed on mobile
+    }
+
+    ul {
+      display: none;
+      flex-direction: column;
+
+      // Animation for sliding down the menu
+      animation: slideDown 0.5s ease-in-out;
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    #menu-toggle:checked + .menu-icon + ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    li a {
+      padding: 10px;
+      font-size: 16px;
+    }
+  }
+}
+
+// Content styles
+header, footer {
+  padding: 20px;
+  margin-top: 60px;
+
+  &.header {
+    background-color: $nav-bg;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  &.footer {
+    background-color: $nav-bg;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+// Justificación del texto en la sección
+section {
+  padding: 20px;
+  margin-top: 60px;
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  p {
+    text-align: justify; // Justifica el texto en la sección
+  }
+}
+
+// Media Queries for responsive design
+@media (max-width: 768px) {
+  header, section, footer {
+    margin-top: 80px;
+    padding: 15px;
+  }
+
+  section {
+    margin: 10px;
+    padding: 15px;
+
+    iframe {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+

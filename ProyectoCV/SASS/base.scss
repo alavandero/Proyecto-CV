@@ -1,0 +1,10 @@
+@use 'variables' as *;
+
+// General styles
+body {
+  font-family: $font-stack;
+  margin: 0;
+  padding: 0;
+  background-color: $bg-color;
+  color: $text-color;
+}

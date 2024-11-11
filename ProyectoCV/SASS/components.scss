@@ -1,0 +1,100 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Form styles
+form {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin: 10px 0 5px;
+  }
+
+  input, textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  input[type="submit"] {
+    background-color: $nav-bg;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $nav-hover;
+    }
+  }
+}
+
+// Advanced styles: Transformations, Transitions, Animations
+nav ul li a {
+  @include transition(background-color);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+header {
+  animation: fadeIn 1s ease-in-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// Nueva animación para el menú de navegación
+nav ul {
+  animation: slideDown 0.5s ease-in-out;
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Nueva animación para el texto del encabezado
+header h1 {
+  animation: fadeInText 2s ease-in-out;
+
+  @keyframes fadeInText {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+// Nueva animación para las secciones
+section {
+  animation: fadeInSection 1s ease-in-out;
+
+  @keyframes fadeInSection {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
